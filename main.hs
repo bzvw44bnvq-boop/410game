@@ -23,7 +23,6 @@ main = do
     putStrLn "BIENVENIDO a 4=10"
     jugar
    
-
 jugar :: IO () 
 jugar = do 
     putStrLn "\n----------------"
@@ -41,8 +40,12 @@ jugar = do
     putStrLn "Quiere jugar de nuevo? (s/n)" 
     respuesta <- getLine 
     if respuesta == "s" || respuesta == "S"
-        then jugar 
-        else putStrLn "Gracias por jugar!" 
+        then do 
+            putStrLn "Okay, vamos de nuevo!"
+            jugar 
+        else putStrLn "Gracias por jugar! Presiona ENTER para cerra"
+        _ <- getLine 
+        return ()  
 
 
 
